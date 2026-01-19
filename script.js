@@ -93,7 +93,7 @@ function showAnimation(weather) {
 
     // Add cute pixel character with reaction
     const character = document.createElement('div');
-    character.className = 'character';
+    character.className = 'character dancing'; // Always dancing!
 
     const head = document.createElement('div');
     head.className = 'character-head';
@@ -111,25 +111,25 @@ function showAnimation(weather) {
     rightArm.className = 'character-arm right-arm';
     character.appendChild(rightArm);
 
-    // Apply reaction based on weather
+    // Apply reaction based on weather (combines with dance)
     if (weather.includes('Clear') || weather.includes('Sunny')) {
-        character.classList.add('waving'); // Happy waving
+        character.classList.add('waving'); // Happy waving dance
 
     } else if (weather.includes('Rain') || weather.includes('Drizzle')) {
         const umbrella = document.createElement('div');
         umbrella.className = 'umbrella';
-        character.appendChild(umbrella); // Holding umbrella
+        character.appendChild(umbrella); // Umbrella jump dance
 
     } else if (weather.includes('Snow')) {
-        character.classList.add('shivering'); // Shivering cold
+        character.classList.add('shivering'); // Shivering twirl dance
 
     } else if (weather.includes('Thunderstorm')) {
-        character.classList.add('scared'); // Scared pose
+        character.classList.add('scared'); // Scared shaky dance
 
     } else if (weather.includes('Fog') || weather.includes('Mist') || weather.includes('Haze')) {
-        character.classList.add('peeking'); // Peeking out
+        character.classList.add('peeking'); // Peeking sway dance
 
-    } // For clouds, no extra—just neutral
+    } // For clouds, just basic bounce dance
 
     container.appendChild(character);
 }
