@@ -1,6 +1,6 @@
 function getWeather() {
     const city = document.getElementById('cityInput').value || 'Boston';
-    const apiKey = '15c6e7fafb6eadd1988b369b7f4796eb'; // Your key—keep it!
+    const apiKey = '15c6e7fafb6eadd1988b369b7f4796eb'; // Your key
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
 
     fetch(url)
@@ -29,20 +29,20 @@ function showAnimation(weather) {
     const container = document.getElementById('animationContainer');
     container.innerHTML = ''; // Clear previous
 
+    // Create base weather effects (same as before, but more animated)
     if (weather.includes('Clear') || weather.includes('Sunny')) {
         const sun = document.createElement('div');
         sun.className = 'sun';
         container.appendChild(sun);
 
     } else if (weather.includes('Rain') || weather.includes('Drizzle')) {
-        for (let i = 0; i < 20; i++) { // More drops for fun
+        for (let i = 0; i < 20; i++) {
             const drop = document.createElement('div');
             drop.className = 'rain-drop';
             drop.style.left = `${Math.random() * 100}%`;
             drop.style.animationDelay = `${Math.random() * 1.2}s`;
             container.appendChild(drop);
 
-            // Random splashes
             if (Math.random() > 0.5) {
                 const splash = document.createElement('div');
                 splash.className = 'rain-splash';
@@ -58,12 +58,11 @@ function showAnimation(weather) {
             flake.className = 'snowflake';
             flake.style.left = `${Math.random() * 100}%`;
             flake.style.animationDelay = `${Math.random() * 5}s`;
-            flake.style.animationDuration = `${4 + Math.random() * 6}s`; // Vary speeds
+            flake.style.animationDuration = `${4 + Math.random() * 6}s`;
             container.appendChild(flake);
         }
 
     } else if (weather.includes('Thunderstorm')) {
-        // Lightning + rain
         const lightning = document.createElement('div');
         lightning.className = 'lightning';
         container.appendChild(lightning);
@@ -83,7 +82,7 @@ function showAnimation(weather) {
 
         const fog2 = document.createElement('div');
         fog2.className = 'fog';
-        fog2.style.animationDelay = '10s'; // Layered for depth
+        fog2.style.animationDelay = '10s';
         container.appendChild(fog2);
 
     } else if (weather.includes('Cloud')) {
@@ -91,4 +90,46 @@ function showAnimation(weather) {
         cloud.className = 'cloud';
         container.appendChild(cloud);
     }
+
+    // Add cute pixel character with reaction
+    const character = document.createElement('div');
+    character.className = 'character';
+
+    const head = document.createElement('div');
+    head.className = 'character-head';
+    character.appendChild(head);
+
+    const body = document.createElement('div');
+    body.className = 'character-body';
+    character.appendChild(body);
+
+    const leftArm = document.createElement('div');
+    leftArm.className = 'character-arm left-arm';
+    character.appendChild(leftArm);
+
+    const rightArm = document.createElement('div');
+    rightArm.className = 'character-arm right-arm';
+    character.appendChild(rightArm);
+
+    // Apply reaction based on weather
+    if (weather.includes('Clear') || weather.includes('Sunny')) {
+        character.classList.add('waving'); // Happy waving
+
+    } else if (weather.includes('Rain') || weather.includes('Drizzle')) {
+        const umbrella = document.createElement('div');
+        umbrella.className = 'umbrella';
+        character.appendChild(umbrella); // Holding umbrella
+
+    } else if (weather.includes('Snow')) {
+        character.classList.add('shivering'); // Shivering cold
+
+    } else if (weather.includes('Thunderstorm')) {
+        character.classList.add('scared'); // Scared pose
+
+    } else if (weather.includes('Fog') || weather.includes('Mist') || weather.includes('Haze')) {
+        character.classList.add('peeking'); // Peeking out
+
+    } // For clouds, no extra—just neutral
+
+    container.appendChild(character);
 }
