@@ -1,0 +1,135 @@
+body {
+    background: #000;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.crt-container {
+    position: relative;
+    width: 360px;
+    height: 320px;
+    background: #000;
+    border: 8px solid #222;
+    border-radius: 12px;
+    box-shadow: 0 0 40px rgba(0, 255, 100, 0.4); /* green CRT glow */
+}
+
+.gameboy-crt {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #9bbc0f; /* GameBoy green */
+    border: 6px solid #0f380f;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.scanlines {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(0,0,0,0.08) 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+    z-index: 10;
+}
+
+.screen {
+    position: relative;
+    z-index: 5;
+    padding: 20px;
+    color: #0f380f;
+    text-shadow: 0 0 4px #306230;
+    text-align: center;
+}
+
+h1 {
+    font-size: 18px;
+    margin: 0 0 12px;
+    color: #306230;
+    text-shadow: 2px 2px 0 #0f380f;
+}
+
+input, button {
+    font-family: inherit;
+    font-size: 12px;
+    background: #306230;
+    color: #9bbc0f;
+    border: 3px solid #0f380f;
+    padding: 8px;
+    margin: 6px 0;
+    width: 80%;
+    box-sizing: border-box;
+}
+
+button:hover {
+    background: #0f380f;
+    color: #9bbc0f;
+}
+
+/* Animations - pixel + anime sparkle */
+#animationContainer {
+    height: 120px;
+    position: relative;
+    overflow: hidden;
+}
+
+.sun {
+    width: 32px;
+    height: 32px;
+    background: #ffeb3b;
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 16px #ffeb3b;
+    animation: shine 2s infinite, pulse 3s infinite;
+}
+
+@keyframes shine {
+    0%,100% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.15); }
+}
+
+.rain {
+    width: 3px;
+    height: 12px;
+    background: #2196f3;
+    position: absolute;
+    animation: fall 0.8s linear infinite;
+    box-shadow: 0 0 4px #2196f3;
+}
+
+.cloud {
+    width: 48px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 30px;
+    left: 40%;
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes fall {
+    0% { top: -20px; opacity: 1; }
+    100% { top: 140px; opacity: 0.6; }
+}
+
+@keyframes float {
+    0%,100% { transform: translateX(0); }
+    50% { transform: translateX(12px); }
+}
+
+@keyframes pulse {
+    0%,100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
