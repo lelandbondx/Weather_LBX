@@ -76,60 +76,126 @@ button:hover {
 
 /* Animations - pixel + anime sparkle */
 #animationContainer {
-    height: 120px;
+   /* Existing stuff stays the same... add/replace below */
+
+/* Container - make it taller for better animations */
+#animationContainer {
+    height: 140px;
     position: relative;
     overflow: hidden;
 }
 
+/* Improved Sun: Bigger, with rays */
 .sun {
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
     background: #ffeb3b;
     border-radius: 50%;
     position: absolute;
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    box-shadow: 0 0 16px #ffeb3b;
-    animation: shine 2s infinite, pulse 3s infinite;
+    box-shadow: 0 0 20px #ffeb3b;
+    animation: pulse 3s infinite;
 }
 
-@keyframes shine {
-    0%,100% { transform: translateX(-50%) scale(1); }
-    50% { transform: translateX(-50%) scale(1.15); }
-}
-
-.rain {
-    width: 3px;
-    height: 12px;
-    background: #2196f3;
+.sun::before { /* Rays */
+    content: '';
     position: absolute;
-    animation: fall 0.8s linear infinite;
-    box-shadow: 0 0 4px #2196f3;
-}
-
-.cloud {
-    width: 48px;
-    height: 20px;
-    background: white;
-    border-radius: 50%;
-    position: absolute;
-    top: 30px;
-    left: 40%;
-    animation: float 4s ease-in-out infinite;
-}
-
-@keyframes fall {
-    0% { top: -20px; opacity: 1; }
-    100% { top: 140px; opacity: 0.6; }
-}
-
-@keyframes float {
-    0%,100% { transform: translateX(0); }
-    50% { transform: translateX(12px); }
+    top: -10px; left: -10px; right: -10px; bottom: -10px;
+    background: radial-gradient(circle, #ffeb3b 20%, transparent 60%);
+    animation: rotate 8s linear infinite;
 }
 
 @keyframes pulse {
-    0%,100% { opacity: 1; }
-    50% { opacity: 0.8; }
+    0%, 100% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.1); }
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Better Rain: More drops + splashes */
+.rain-drop {
+    width: 4px;
+    height: 20px;
+    background: linear-gradient(transparent, #2196f3);
+    position: absolute;
+    animation: fall 1.2s linear infinite;
+    border-radius: 50% 50% 0 0;
+}
+
+.rain-splash {
+    width: 12px;
+    height: 12px;
+    background: #2196f3;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    opacity: 0;
+    animation: splash 1.5s infinite;
+}
+
+@keyframes fall {
+    0% { top: -30px; opacity: 1; }
+    100% { top: 140px; opacity: 0; }
+}
+
+@keyframes splash {
+    0% { transform: scale(0); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0.5; }
+    100% { transform: scale(0); opacity: 0; }
+}
+
+/* Snow: Twirly flakes */
+.snowflake {
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    animation: snow-fall 5s linear infinite;
+    box-shadow: 0 0 4px white;
+}
+
+@keyframes snow-fall {
+    0% { top: -20px; transform: translateX(0) rotate(0deg); opacity: 1; }
+    100% { top: 140px; transform: translateX(20px) rotate(360deg); opacity: 0; }
+}
+
+/* Lightning for Thunderstorm */
+.lightning {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 40px solid #ffeb3b;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    animation: flash 0.5s infinite alternate;
+}
+
+@keyframes flash {
+    0% { opacity: 0; transform: translateX(-50%) scale(0); }
+    50% { opacity: 1; transform: translateX(-50%) scale(1.2); }
+    100% { opacity: 0; transform: translateX(-50%) scale(0); }
+}
+
+/* Fog: Slow drifting layer */
+.fog {
+    width: 200%;
+    height: 100px;
+    background: linear-gradient(transparent, rgba(255,255,255,0.4), transparent);
+    position: absolute;
+    bottom: 0;
+    animation: drift 20s linear infinite;
+}
+
+@keyframes drift {
+    0% { left: -100%; }
+    100% { left: 0; }
 }
