@@ -74,9 +74,9 @@ button:hover {
     color: #9bbc0f;
 }
 
-/* Animations - enhanced with more movement + characters */
+/* Animations - weather + bigger dancing characters */
 #animationContainer {
-    height: 160px; /* Taller for characters */
+    height: 160px; /* Taller for bigger sprites */
     position: relative;
     overflow: hidden;
 }
@@ -209,13 +209,14 @@ button:hover {
     50% { transform: translateY(-5px); }
 }
 
-/* Cute Pixel Characters - Bigger, brighter, two of them */
+/* Fun Dancing Pixel Sprites - Bigger, brighter, two of them */
 .character {
     position: absolute;
     bottom: 10px;
     width: 48px;
     height: 72px;
     transform-origin: bottom;
+    box-shadow: 0 0 8px rgba(0,0,0,0.5); /* Outline to stand out */
 }
 
 .character1 {
@@ -292,7 +293,7 @@ button:hover {
 .left-arm { left: -9px; }
 .right-arm { right: -9px; }
 
-/* Reactions - animations for character */
+/* Reactions for sprites */
 .waving .left-arm, .waving .right-arm {
     animation: wave 1s infinite alternate;
 }
