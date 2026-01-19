@@ -74,9 +74,9 @@ button:hover {
     color: #9bbc0f;
 }
 
-/* Animations - enhanced with more movement + character */
+/* Animations - enhanced with more movement + characters */
 #animationContainer {
-    height: 160px; /* Taller for bigger character */
+    height: 160px; /* Taller for characters */
     position: relative;
     overflow: hidden;
 }
@@ -209,16 +209,21 @@ button:hover {
     50% { transform: translateY(-5px); }
 }
 
-/* Cute Pixel Character - Bigger, centered, brighter */
+/* Cute Pixel Characters - Bigger, brighter, two of them */
 .character {
     position: absolute;
     bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
     width: 48px;
     height: 72px;
     transform-origin: bottom;
-    box-shadow: 0 0 8px rgba(0,0,0,0.5); /* Outline for contrast */
+}
+
+.character1 {
+    left: 30%;
+}
+
+.character2 {
+    left: 60%;
 }
 
 .dancing {
@@ -256,7 +261,7 @@ button:hover {
 .character-head::before { left: 8px; }
 .character-head::after { right: 8px; }
 
-.character-head .mouth { /* Mouth */
+.mouth {
     width: 12px;
     height: 2px;
     background: #000;
@@ -278,7 +283,7 @@ button:hover {
 .character-arm {
     width: 12px;
     height: 24px;
-    background: #ffd700; /* Bright arms */
+    background: #ffd700;
     border: 3px solid #000;
     position: absolute;
     top: 36px;
