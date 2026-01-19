@@ -219,6 +219,18 @@ button:hover {
     transform-origin: bottom;
 }
 
+/* Always add dancing animation */
+.dancing {
+    animation: dance-bob 1.5s infinite ease-in-out;
+}
+
+@keyframes dance-bob {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-4px) rotate(-5deg); }
+    50% { transform: translateY(0) rotate(0deg); }
+    75% { transform: translateY(-4px) rotate(5deg); }
+}
+
 .character-head {
     width: 20px;
     height: 20px;
