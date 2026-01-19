@@ -91,7 +91,7 @@ function showAnimation(weather) {
         container.appendChild(cloud);
     }
 
-    // Add two cute pixel characters with reaction
+    // Add two fun dancing pixel sprites with reaction
     for (let num = 1; num <= 2; num++) {
         const character = document.createElement('div');
         character.className = 'character dancing character' + num;
@@ -139,3 +139,6 @@ function showAnimation(weather) {
         container.appendChild(character);
     }
 }
+
+// Auto-load for instant appearance
+getWeather();
