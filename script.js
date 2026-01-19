@@ -29,7 +29,7 @@ function showAnimation(weather) {
     const container = document.getElementById('animationContainer');
     container.innerHTML = ''; // Clear previous
 
-    // Create base weather effects (same as before, but more animated)
+    // Create base weather effects
     if (weather.includes('Clear') || weather.includes('Sunny')) {
         const sun = document.createElement('div');
         sun.className = 'sun';
@@ -98,6 +98,10 @@ function showAnimation(weather) {
     const head = document.createElement('div');
     head.className = 'character-head';
     character.appendChild(head);
+
+    const mouth = document.createElement('div');
+    mouth.className = 'mouth';
+    head.appendChild(mouth); // Add mouth to head
 
     const body = document.createElement('div');
     body.className = 'character-body';
