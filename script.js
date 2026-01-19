@@ -1,6 +1,6 @@
 function getWeather() {
     const city = document.getElementById('cityInput').value || 'Boston';
-    const apiKey = '15c6e7fafb6eadd1988b369b7f4796eb'; // ← Paste your key here!
+    const apiKey = '15c6e7fafb6eadd1988b369b7f4796eb'; // Your key—keep it!
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
 
     fetch(url)
@@ -26,7 +26,6 @@ function getWeather() {
 }
 
 function showAnimation(weather) {
-  function showAnimation(weather) {
     const container = document.getElementById('animationContainer');
     container.innerHTML = ''; // Clear previous
 
@@ -36,14 +35,14 @@ function showAnimation(weather) {
         container.appendChild(sun);
 
     } else if (weather.includes('Rain') || weather.includes('Drizzle')) {
-        for (let i = 0; i < 20; i++) { // More drops
+        for (let i = 0; i < 20; i++) { // More drops for fun
             const drop = document.createElement('div');
             drop.className = 'rain-drop';
             drop.style.left = `${Math.random() * 100}%`;
             drop.style.animationDelay = `${Math.random() * 1.2}s`;
             container.appendChild(drop);
 
-            // Add splash at bottom
+            // Random splashes
             if (Math.random() > 0.5) {
                 const splash = document.createElement('div');
                 splash.className = 'rain-splash';
@@ -59,7 +58,7 @@ function showAnimation(weather) {
             flake.className = 'snowflake';
             flake.style.left = `${Math.random() * 100}%`;
             flake.style.animationDelay = `${Math.random() * 5}s`;
-            flake.style.animationDuration = `${4 + Math.random() * 6}s`; // Vary speed
+            flake.style.animationDuration = `${4 + Math.random() * 6}s`; // Vary speeds
             container.appendChild(flake);
         }
 
@@ -84,11 +83,10 @@ function showAnimation(weather) {
 
         const fog2 = document.createElement('div');
         fog2.className = 'fog';
-        fog2.style.animationDelay = '10s';
+        fog2.style.animationDelay = '10s'; // Layered for depth
         container.appendChild(fog2);
 
     } else if (weather.includes('Cloud')) {
-        // Keep your existing cloud or add more
         const cloud = document.createElement('div');
         cloud.className = 'cloud';
         container.appendChild(cloud);
