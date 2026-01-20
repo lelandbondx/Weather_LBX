@@ -15,14 +15,14 @@ body {
     background: #000;
     border: 8px solid #222;
     border-radius: 12px;
-    box-shadow: 0 0 40px rgba(0, 255, 100, 0.4); /* green CRT glow */
+    box-shadow: 0 0 40px rgba(0, 255, 100, 0.4);
 }
 
 .gameboy-crt {
     position: relative;
     width: 100%;
     height: 100%;
-    background: #9bbc0f; /* GameBoy green */
+    background: #9bbc0f;
     border: 6px solid #0f380f;
     border-radius: 8px;
     overflow: hidden;
@@ -94,7 +94,7 @@ button:hover {
     animation: pulse 3s infinite;
 }
 
-.sun::before { /* Rotating rays */
+.sun::before {
     content: '';
     position: absolute;
     top: -10px; left: -10px; right: -10px; bottom: -10px;
@@ -210,7 +210,7 @@ button:hover {
 }
 
 /* Cool Dancing Pixel People and Animals */
-.character, .animal {
+.person, .animal {
     position: absolute;
     bottom: 10px;
     width: 32px;
@@ -218,11 +218,11 @@ button:hover {
     animation: dance-bob 1.5s infinite ease-in-out;
 }
 
-.character {
+.person1 {
     left: 20%;
 }
 
-.animal {
+.animal1 {
     left: 70%;
 }
 
@@ -233,7 +233,7 @@ button:hover {
     75% { transform: translateY(-4px) rotate(5deg); }
 }
 
-.character-head, .animal-head {
+.person-head, .animal-head {
     width: 20px;
     height: 20px;
     background: #ffcc99;
@@ -244,7 +244,7 @@ button:hover {
     left: 6px;
 }
 
-.character-body, .animal-body {
+.person-body, .animal-body {
     width: 24px;
     height: 28px;
     background: #66ccff;
@@ -254,7 +254,7 @@ button:hover {
     left: 4px;
 }
 
-.character-arm, .animal-ear {
+.person-arm {
     width: 8px;
     height: 16px;
     background: #ffcc99;
@@ -263,10 +263,23 @@ button:hover {
     top: 24px;
 }
 
-.left-arm, .left-ear { left: -6px; }
-.right-arm, .right-ear { right: -6px; }
+.left-arm { left: -6px; }
+.right-arm { right: -6px; }
 
-/* Reactions for dancing */
+.animal-ear {
+    width: 8px;
+    height: 16px;
+    background: #ffcc99;
+    border: 2px solid #000;
+    position: absolute;
+    top: 0;
+    transform: rotate(30deg);
+}
+
+.left-ear { left: -6px; transform: rotate(-30deg); }
+.right-ear { right: -6px; transform: rotate(30deg); }
+
+/* Reactions for dancing sprites */
 .waving .left-arm, .waving .right-arm {
     animation: wave 1s infinite alternate;
 }
@@ -299,7 +312,7 @@ button:hover {
     100% { transform: translateX(0); }
 }
 
-.scared .character-head, .scared .animal-head {
+.scared .person-head, .scared .animal-head {
     background: #ffff99;
 }
 
