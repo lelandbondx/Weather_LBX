@@ -74,9 +74,9 @@ button:hover {
     color: #9bbc0f;
 }
 
-/* Animations - weather + bigger dancing characters */
+/* Fun Pixel Weather Animations */
 #animationContainer {
-    height: 160px; /* Taller for bigger sprites */
+    height: 140px;
     position: relative;
     overflow: hidden;
 }
@@ -135,7 +135,7 @@ button:hover {
 
 @keyframes fall {
     0% { top: -30px; opacity: 1; }
-    100% { top: 160px; opacity: 0; }
+    100% { top: 140px; opacity: 0; }
 }
 
 @keyframes splash {
@@ -156,7 +156,7 @@ button:hover {
 
 @keyframes snow-fall {
     0% { top: -20px; transform: translateX(0) rotate(0deg); opacity: 1; }
-    100% { top: 160px; transform: translateX(20px) rotate(360deg); opacity: 0; }
+    100% { top: 140px; transform: translateX(20px) rotate(360deg); opacity: 0; }
 }
 
 .lightning {
@@ -209,91 +209,64 @@ button:hover {
     50% { transform: translateY(-5px); }
 }
 
-/* Fun Dancing Pixel Sprites - Bigger, brighter, two of them */
-.character {
+/* Cool Dancing Pixel People and Animals */
+.character, .animal {
     position: absolute;
     bottom: 10px;
-    width: 48px;
-    height: 72px;
-    transform-origin: bottom;
-    box-shadow: 0 0 8px rgba(0,0,0,0.5); /* Outline to stand out */
-}
-
-.character1 {
-    left: 30%;
-}
-
-.character2 {
-    left: 60%;
-}
-
-.dancing {
+    width: 32px;
+    height: 48px;
     animation: dance-bob 1.5s infinite ease-in-out;
+}
+
+.character {
+    left: 20%;
+}
+
+.animal {
+    left: 70%;
 }
 
 @keyframes dance-bob {
     0%, 100% { transform: translateY(0) rotate(0deg); }
-    25% { transform: translateY(-6px) rotate(-5deg); }
+    25% { transform: translateY(-4px) rotate(-5deg); }
     50% { transform: translateY(0) rotate(0deg); }
-    75% { transform: translateY(-6px) rotate(5deg); }
+    75% { transform: translateY(-4px) rotate(5deg); }
 }
 
-.character-head {
-    width: 30px;
-    height: 30px;
-    background: #ffd700; /* Bright yellow */
-    border: 3px solid #000;
+.character-head, .animal-head {
+    width: 20px;
+    height: 20px;
+    background: #ffcc99;
+    border: 2px solid #000;
     border-radius: 50%;
     position: absolute;
     top: 0;
-    left: 9px;
-}
-
-.character-head::before, .character-head::after { /* Eyes */
-    content: '';
-    width: 4px;
-    height: 4px;
-    background: #000;
-    border-radius: 50%;
-    position: absolute;
-    top: 10px;
-}
-
-.character-head::before { left: 8px; }
-.character-head::after { right: 8px; }
-
-.mouth {
-    width: 12px;
-    height: 2px;
-    background: #000;
-    position: absolute;
-    bottom: 6px;
-    left: 9px;
-}
-
-.character-body {
-    width: 36px;
-    height: 42px;
-    background: #ff69b4; /* Bright pink */
-    border: 3px solid #000;
-    position: absolute;
-    top: 27px;
     left: 6px;
 }
 
-.character-arm {
-    width: 12px;
-    height: 24px;
-    background: #ffd700;
-    border: 3px solid #000;
+.character-body, .animal-body {
+    width: 24px;
+    height: 28px;
+    background: #66ccff;
+    border: 2px solid #000;
     position: absolute;
-    top: 36px;
+    top: 18px;
+    left: 4px;
 }
 
-.left-arm { left: -9px; }
-.right-arm { right: -9px; }
+.character-arm, .animal-ear {
+    width: 8px;
+    height: 16px;
+    background: #ffcc99;
+    border: 2px solid #000;
+    position: absolute;
+    top: 24px;
+}
 
-/* Reactions for sprites */
+.left-arm, .left-ear { left: -6px; }
+.right-arm, .right-ear { right: -6px; }
+
+/* Reactions for dancing */
 .waving .left-arm, .waving .right-arm {
     animation: wave 1s infinite alternate;
 }
@@ -304,14 +277,14 @@ button:hover {
 }
 
 .umbrella {
-    width: 60px;
-    height: 30px;
+    width: 40px;
+    height: 20px;
     background: #ff0000;
     border-radius: 50% 50% 0 0;
     position: absolute;
-    top: -15px;
-    left: -6px;
-    border: 3px solid #000;
+    top: -10px;
+    left: -4px;
+    border: 2px solid #000;
 }
 
 .shivering {
@@ -320,18 +293,18 @@ button:hover {
 
 @keyframes shiver {
     0% { transform: translateX(0); }
-    25% { transform: translateX(-3px); }
-    50% { transform: translateX(3px); }
-    75% { transform: translateX(-3px); }
+    25% { transform: translateX(-2px); }
+    50% { transform: translateX(2px); }
+    75% { transform: translateX(-2px); }
     100% { transform: translateX(0); }
 }
 
-.scared .character-head {
+.scared .character-head, .scared .animal-head {
     background: #ffff99;
 }
 
-.scared .left-arm, .scared .right-arm {
-    top: 15px;
+.scared .left-arm, .scared .right-arm, .scared .left-ear, .scared .right-ear {
+    top: 10px;
 }
 
 .peeking {
@@ -339,7 +312,7 @@ button:hover {
 }
 
 @keyframes peek {
-    0% { transform: translateX(-30px); }
+    0% { transform: translateX(-20px); }
     50% { transform: translateX(0); }
-    100% { transform: translateX(-30px); }
+    100% { transform: translateX(-20px); }
 }
