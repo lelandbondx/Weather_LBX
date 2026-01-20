@@ -1,6 +1,6 @@
 function getWeather() {
     const city = document.getElementById('cityInput').value || 'Boston';
-    const apiKey = '15c6e7fafb6eadd1988b369b7f4796eb'; // Your key
+    const apiKey = '15c6e7fafb6eadd1988b369b7f4796eb'; // Your key - replace if needed
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
 
     fetch(url)
@@ -29,7 +29,7 @@ function showAnimation(weather) {
     const container = document.getElementById('animationContainer');
     container.innerHTML = ''; // Clear previous
 
-    // Create base weather effects
+    // Weather animations
     if (weather.includes('Clear') || weather.includes('Sunny')) {
         const sun = document.createElement('div');
         sun.className = 'sun';
@@ -91,54 +91,67 @@ function showAnimation(weather) {
         container.appendChild(cloud);
     }
 
-    // Add two fun dancing pixel sprites with reaction
-    for (let num = 1; num <= 2; num++) {
-        const character = document.createElement('div');
-        character.className = 'character dancing character' + num;
+    // Cool Dancing Pixel People and Animals
+    const character = document.createElement('div');
+    character.className = 'character dancing';
 
-        const head = document.createElement('div');
-        head.className = 'character-head';
-        character.appendChild(head);
+    const head = document.createElement('div');
+    head.className = 'character-head';
+    character.appendChild(head);
 
-        const mouth = document.createElement('div');
-        mouth.className = 'mouth';
-        head.appendChild(mouth);
+    const body = document.createElement('div');
+    body.className = 'character-body';
+    character.appendChild(body);
 
-        const body = document.createElement('div');
-        body.className = 'character-body';
-        character.appendChild(body);
+    const leftArm = document.createElement('div');
+    leftArm.className = 'character-arm left-arm';
+    character.appendChild(leftArm);
 
-        const leftArm = document.createElement('div');
-        leftArm.className = 'character-arm left-arm';
-        character.appendChild(leftArm);
+    const rightArm = document.createElement('div');
+    rightArm.className = 'character-arm right-arm';
+    character.appendChild(rightArm);
 
-        const rightArm = document.createElement('div');
-        rightArm.className = 'character-arm right-arm';
-        character.appendChild(rightArm);
+    // Animal (bunny-like)
+    const animal = document.createElement('div');
+    animal.className = 'animal dancing';
 
-        // Apply reaction based on weather (combines with dance)
+    const animalHead = document.createElement('div');
+    animalHead.className = 'animal-head';
+    animal.appendChild(animalHead);
+
+    const animalBody = document.createElement('div');
+    animalBody.className = 'animal-body';
+    animal.appendChild(animalBody);
+
+    const leftEar = document.createElement('div');
+    leftEar.className = 'animal-ear left-ear';
+    animal.appendChild(leftEar);
+
+    const rightEar = document.createElement('div');
+    rightEar.className = 'animal-ear right-ear';
+    animal.appendChild(rightEar);
+
+    // Apply reactions to both
+    [character, animal].forEach(sprite => {
         if (weather.includes('Clear') || weather.includes('Sunny')) {
-            character.classList.add('waving');
+            sprite.classList.add('waving');
 
         } else if (weather.includes('Rain') || weather.includes('Drizzle')) {
             const umbrella = document.createElement('div');
             umbrella.className = 'umbrella';
-            character.appendChild(umbrella);
+            sprite.appendChild(umbrella);
 
         } else if (weather.includes('Snow')) {
-            character.classList.add('shivering');
+            sprite.classList.add('shivering');
 
         } else if (weather.includes('Thunderstorm')) {
-            character.classList.add('scared');
+            sprite.classList.add('scared');
 
         } else if (weather.includes('Fog') || weather.includes('Mist') || weather.includes('Haze')) {
-            character.classList.add('peeking');
+            sprite.classList.add('peeking');
 
         }
 
-        container.appendChild(character);
-    }
+        container.appendChild(sprite);
+    });
 }
-
-// Auto-load for instant appearance
-getWeather();
