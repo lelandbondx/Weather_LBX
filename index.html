@@ -3,24 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pixel Weather Bot</title>
+    <title>Pixel Weather Bot CRT</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> <!-- Free pixel font -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="gameboy">
-        <div class="screen">
-            <h1>Pixel Weather Bot</h1>
-            <input type="text" id="cityInput" placeholder="Enter city (e.g., Boston)">
-            <button onclick="getWeather()">Get Weather</button>
-            <div id="weatherDisplay">
-                <!-- Weather info will appear here -->
-            </div>
-            <div id="animationContainer">
-                <!-- Animations will go here -->
+    <div class="crt-container">
+        <div class="gameboy-crt">
+            <div class="scanlines"></div>
+            <div class="screen">
+                <h1>PIXEL WEATHER BOT</h1>
+                <input type="text" id="cityInput" placeholder="City (e.g. Boston)" value="Boston">
+                <button onclick="getWeather()">GO!</button>
+                <div id="weatherDisplay"></div>
+                <div id="animationContainer"></div>
             </div>
         </div>
     </div>
     <script src="script.js"></script>
+    <script>
+        // Auto-load Boston weather on open for instant fun
+        getWeather();
+    </script>
 </body>
 </html>
