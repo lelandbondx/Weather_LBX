@@ -1,6 +1,6 @@
 function getWeather() {
     const city = document.getElementById('cityInput').value || 'Boston';
-    const apiKey = '15c6e7fafb6eadd1988b369b7f4796eb'; // Replace with your actual OpenWeatherMap key if this one isn't working
+    const apiKey = '15c6e7fafb6eadd1988b369b7f4796eb';
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
 
     fetch(url)
@@ -20,17 +20,16 @@ function getWeather() {
             document.getElementById('weatherDisplay').innerHTML = display;
             showAnimation(weather);
         })
-        .catch(error => {
-            document.getElementById('weatherDisplay').innerHTML = '<p>Oops! Check internet or API key</p>';
-            console.error('Error:', error);
+        .catch(() => {
+            document.getElementById('weatherDisplay').innerHTML = '<p>Oops! Check internet</p>';
         });
 }
 
 function showAnimation(weather) {
     const container = document.getElementById('animationContainer');
-    container.innerHTML = ''; // Clear previous
+    container.innerHTML = '';
 
-    // Add weather animations
+    // Weather animations
     if (weather.includes('Clear') || weather.includes('Sunny')) {
         const sun = document.createElement('div');
         sun.className = 'sun';
@@ -94,7 +93,7 @@ function showAnimation(weather) {
 
     // Add cool dancing pixel people and animals
     const person = document.createElement('div');
-    person.className = 'person dancing person1';
+    person.className = 'person dancing';
 
     const personHead = document.createElement('div');
     personHead.className = 'person-head';
@@ -105,17 +104,17 @@ function showAnimation(weather) {
     person.appendChild(personBody);
 
     const leftArm = document.createElement('div');
-    leftArm.className = 'left-arm';
+    leftArm.className = 'person-arm left-arm';
     person.appendChild(leftArm);
 
     const rightArm = document.createElement('div');
-    rightArm.className = 'right-arm';
+    rightArm.className = 'person-arm right-arm';
     person.appendChild(rightArm);
 
     container.appendChild(person);
 
     const animal = document.createElement('div');
-    animal.className = 'animal dancing animal1';
+    animal.className = 'animal dancing';
 
     const animalHead = document.createElement('div');
     animalHead.className = 'animal-head';
@@ -126,34 +125,29 @@ function showAnimation(weather) {
     animal.appendChild(animalBody);
 
     const leftEar = document.createElement('div');
-    leftEar.className = 'left-ear';
+    leftEar.className = 'animal-ear left-ear';
     animal.appendChild(leftEar);
 
     const rightEar = document.createElement('div');
-    rightEar.className = 'right-ear';
+    rightEar.className = 'animal-ear right-ear';
     animal.appendChild(rightEar);
 
     container.appendChild(animal);
 
-    // Apply reactions to both sprites
+    // Apply reactions to both
     [person, animal].forEach(sprite => {
         if (weather.includes('Clear') || weather.includes('Sunny')) {
             sprite.classList.add('waving');
-
         } else if (weather.includes('Rain') || weather.includes('Drizzle')) {
             const umbrella = document.createElement('div');
             umbrella.className = 'umbrella';
             sprite.appendChild(umbrella);
-
         } else if (weather.includes('Snow')) {
             sprite.classList.add('shivering');
-
         } else if (weather.includes('Thunderstorm')) {
             sprite.classList.add('scared');
-
         } else if (weather.includes('Fog') || weather.includes('Mist') || weather.includes('Haze')) {
             sprite.classList.add('peeking');
-
         }
     });
 }
