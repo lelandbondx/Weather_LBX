@@ -74,7 +74,7 @@ button:hover {
     color: #9bbc0f;
 }
 
-/* Fun 90's GameBoy Style Weather Animations - More lively with bounces, spins */
+/* Fun 90's GameBoy Style Weather Animations - Lively bounces, spins */
 #animationContainer {
     height: 140px;
     position: relative;
@@ -91,15 +91,15 @@ button:hover {
     left: 50%;
     transform: translateX(-50%);
     box-shadow: 0 0 20px #ffeb3b;
-    animation: pulse 3s infinite, bounce 2s infinite; /* Added bounce for fun */
+    animation: pulse 3s infinite, bounce 2s infinite;
 }
 
-.sun::before { /* Spinning rays for 90's feel */
+.sun::before {
     content: '';
     position: absolute;
     top: -10px; left: -10px; right: -10px; bottom: -10px;
     background: radial-gradient(circle, #ffeb3b 20%, transparent 60%);
-    animation: rotate 4s linear infinite; /* Faster spin */
+    animation: rotate 8s linear infinite;
 }
 
 @keyframes pulse {
@@ -117,7 +117,7 @@ button:hover {
     height: 20px;
     background: linear-gradient(transparent, #2196f3);
     position: absolute;
-    animation: fall 1.2s linear infinite, sway 1s infinite alternate; /* Added sway for fun */
+    animation: fall 1.2s linear infinite;
     border-radius: 50% 50% 0 0;
     box-shadow: 0 0 4px #2196f3;
 }
@@ -130,17 +130,12 @@ button:hover {
     position: absolute;
     bottom: 0;
     opacity: 0;
-    animation: splash 1.5s infinite, bounce 0.5s infinite; /* Bouncy splashes */
+    animation: splash 1.5s infinite;
 }
 
 @keyframes fall {
     0% { top: -30px; opacity: 1; }
     100% { top: 140px; opacity: 0; }
-}
-
-@keyframes sway {
-    0% { transform: translateX(-2px); }
-    100% { transform: translateX(2px); }
 }
 
 @keyframes splash {
@@ -214,13 +209,13 @@ button:hover {
     50% { transform: translateY(-5px); }
 }
 
-/* Cool Dancing Pixel People and Animals - More fun with faster moves */
+/* Cool Dancing Pixel People and Animals - Fun 90's style with bounces */
 .person, .animal {
     position: absolute;
     bottom: 10px;
-    width: 48px;
-    height: 72px;
-    animation: dance-bob 1s infinite ease-in-out; /* Faster for 90's energy */
+    width: 32px;
+    height: 48px;
+    animation: dance-bob 1.5s infinite ease-in-out;
 }
 
 .person {
@@ -233,43 +228,43 @@ button:hover {
 
 @keyframes dance-bob {
     0%, 100% { transform: translateY(0) rotate(0deg); }
-    25% { transform: translateY(-6px) rotate(-5deg); }
+    25% { transform: translateY(-4px) rotate(-5deg); }
     50% { transform: translateY(0) rotate(0deg); }
-    75% { transform: translateY(-6px) rotate(5deg); }
+    75% { transform: translateY(-4px) rotate(5deg); }
 }
 
 .person-head, .animal-head {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     background: #ffcc99;
-    border: 3px solid #000;
+    border: 2px solid #000;
     border-radius: 50%;
     position: absolute;
     top: 0;
-    left: 9px;
-}
-
-.person-body, .animal-body {
-    width: 36px;
-    height: 42px;
-    background: #66ccff;
-    border: 3px solid #000;
-    position: absolute;
-    top: 27px;
     left: 6px;
 }
 
-.person-arm, .animal-leg {
-    width: 12px;
-    height: 24px;
-    background: #ffcc99;
-    border: 3px solid #000;
+.person-body, .animal-body {
+    width: 24px;
+    height: 28px;
+    background: #66ccff;
+    border: 2px solid #000;
     position: absolute;
-    top: 36px;
+    top: 18px;
+    left: 4px;
 }
 
-.left-arm, .left-leg { left: -9px; }
-.right-arm, .right-leg { right: -9px; }
+.person-arm {
+    width: 8px;
+    height: 16px;
+    background: #ffcc99;
+    border: 2px solid #000;
+    position: absolute;
+    top: 24px;
+}
+
+.left-arm { left: -6px; }
+.right-arm { right: -6px; }
 
 .animal-ear {
     width: 8px;
@@ -284,9 +279,9 @@ button:hover {
 .left-ear { left: -6px; transform: rotate(-30deg); }
 .right-ear { right: -6px; transform: rotate(30deg); }
 
-/* Reactions for dancing */
+/* Reactions for dancing - more fun with bounces */
 .waving .left-arm, .waving .right-arm {
-    animation: wave 0.8s infinite alternate; /* Faster wave */
+    animation: wave 1s infinite alternate;
 }
 
 @keyframes wave {
@@ -295,26 +290,25 @@ button:hover {
 }
 
 .umbrella {
-    width: 60px;
-    height: 30px;
+    width: 40px;
+    height: 20px;
     background: #ff0000;
     border-radius: 50% 50% 0 0;
     position: absolute;
-    top: -15px;
-    left: -6px;
-    border: 3px solid #000;
-    animation: bounce 0.5s infinite; /* Bouncing umbrella for fun */
+    top: -10px;
+    left: -4px;
+    border: 2px solid #000;
 }
 
 .shivering {
-    animation: shiver 0.3s infinite; /* Faster shiver */
+    animation: shiver 0.5s infinite;
 }
 
 @keyframes shiver {
     0% { transform: translateX(0); }
-    25% { transform: translateX(-3px); }
-    50% { transform: translateX(3px); }
-    75% { transform: translateX(-3px); }
+    25% { transform: translateX(-2px); }
+    50% { transform: translateX(2px); }
+    75% { transform: translateX(-2px); }
     100% { transform: translateX(0); }
 }
 
@@ -322,16 +316,16 @@ button:hover {
     background: #ffff99;
 }
 
-.scared .left-arm, .scared .right-arm, .scared .left-leg, .scared .right-leg {
-    top: 15px;
+.scared .left-arm, .scared .right-arm, .scared .left-ear, .scared .right-ear {
+    top: 10px;
 }
 
 .peeking {
-    animation: peek 2s infinite; /* Faster peek for energy */
+    animation: peek 3s infinite;
 }
 
 @keyframes peek {
-    0% { transform: translateX(-30px); }
+    0% { transform: translateX(-20px); }
     50% { transform: translateX(0); }
-    100% { transform: translateX(-30px); }
+    100% { transform: translateX(-20px); }
 }
