@@ -1,6 +1,6 @@
 function getWeather() {
     const city = document.getElementById('cityInput').value || 'Boston';
-    const apiKey = '15c6e7fafb6eadd1988b369b7f4796eb';
+    const apiKey = '15c6e7fafb6eadd1988b369b7f4796eb'; // Your key - replace if not working
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
 
     fetch(url)
@@ -29,7 +29,7 @@ function showAnimation(weather) {
     const container = document.getElementById('animationContainer');
     container.innerHTML = '';
 
-    // Weather animations - made more fun with bounces and spins
+    // Fun weather animations
     if (weather.includes('Clear') || weather.includes('Sunny')) {
         const sun = document.createElement('div');
         sun.className = 'sun';
@@ -91,9 +91,9 @@ function showAnimation(weather) {
         container.appendChild(cloud);
     }
 
-    // Cool Dancing Pixel People and Animals
+    // Cool Dancing Pixel People and Animals - Fun 90's style
     const person = document.createElement('div');
-    person.className = 'person';
+    person.className = 'person dancing';
 
     const personHead = document.createElement('div');
     personHead.className = 'person-head';
@@ -114,7 +114,7 @@ function showAnimation(weather) {
     container.appendChild(person);
 
     const animal = document.createElement('div');
-    animal.className = 'animal';
+    animal.className = 'animal dancing';
 
     const animalHead = document.createElement('div');
     animalHead.className = 'animal-head';
@@ -134,9 +134,8 @@ function showAnimation(weather) {
 
     container.appendChild(animal);
 
-    // Apply fun dancing and reactions
+    // Apply reactions to make them more fun
     [person, animal].forEach(sprite => {
-        sprite.classList.add('dancing');
         if (weather.includes('Clear') || weather.includes('Sunny')) {
             sprite.classList.add('waving');
         } else if (weather.includes('Rain') || weather.includes('Drizzle')) {
