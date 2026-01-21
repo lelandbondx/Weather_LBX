@@ -29,7 +29,7 @@ function showAnimation(weather) {
     const container = document.getElementById('animationContainer');
     container.innerHTML = '';
 
-    // Weather animations
+    // Weather animations - made more fun with bounces and spins
     if (weather.includes('Clear') || weather.includes('Sunny')) {
         const sun = document.createElement('div');
         sun.className = 'sun';
@@ -91,9 +91,9 @@ function showAnimation(weather) {
         container.appendChild(cloud);
     }
 
-    // Add cool dancing pixel people and animals
+    // Cool Dancing Pixel People and Animals
     const person = document.createElement('div');
-    person.className = 'person dancing';
+    person.className = 'person';
 
     const personHead = document.createElement('div');
     personHead.className = 'person-head';
@@ -104,17 +104,17 @@ function showAnimation(weather) {
     person.appendChild(personBody);
 
     const leftArm = document.createElement('div');
-    leftArm.className = 'person-arm left-arm';
+    leftArm.className = 'left-arm';
     person.appendChild(leftArm);
 
     const rightArm = document.createElement('div');
-    rightArm.className = 'person-arm right-arm';
+    rightArm.className = 'right-arm';
     person.appendChild(rightArm);
 
     container.appendChild(person);
 
     const animal = document.createElement('div');
-    animal.className = 'animal dancing';
+    animal.className = 'animal';
 
     const animalHead = document.createElement('div');
     animalHead.className = 'animal-head';
@@ -125,17 +125,18 @@ function showAnimation(weather) {
     animal.appendChild(animalBody);
 
     const leftEar = document.createElement('div');
-    leftEar.className = 'animal-ear left-ear';
+    leftEar.className = 'left-ear';
     animal.appendChild(leftEar);
 
     const rightEar = document.createElement('div');
-    rightEar.className = 'animal-ear right-ear';
+    rightEar.className = 'right-ear';
     animal.appendChild(rightEar);
 
     container.appendChild(animal);
 
-    // Apply reactions to both
+    // Apply fun dancing and reactions
     [person, animal].forEach(sprite => {
+        sprite.classList.add('dancing');
         if (weather.includes('Clear') || weather.includes('Sunny')) {
             sprite.classList.add('waving');
         } else if (weather.includes('Rain') || weather.includes('Drizzle')) {
