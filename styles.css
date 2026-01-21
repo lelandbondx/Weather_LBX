@@ -218,11 +218,11 @@ button:hover {
     animation: dance-bob 1.5s infinite ease-in-out;
 }
 
-.person1 {
+.person {
     left: 20%;
 }
 
-.animal1 {
+.animal {
     left: 70%;
 }
 
@@ -279,7 +279,7 @@ button:hover {
 .left-ear { left: -6px; transform: rotate(-30deg); }
 .right-ear { right: -6px; transform: rotate(30deg); }
 
-/* Reactions for dancing sprites */
+/* Reactions for dancing */
 .waving .left-arm, .waving .right-arm {
     animation: wave 1s infinite alternate;
 }
